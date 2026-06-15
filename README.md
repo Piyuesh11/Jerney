@@ -167,7 +167,7 @@ The Vite dev server starts on `http://localhost:3000` and proxies `/api` request
 | DELETE | `/api/comments/:id` | Delete a comment |
 
 
----
+--
 
 ## 🌿 Branch Strategy
 
