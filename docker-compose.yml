@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: jerney_pass_2026
       POSTGRES_DB: jerney_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -35,7 +35,7 @@ services:
       DB_USER: jerney_user
       DB_PASSWORD: jerney_pass_2026
       DB_HOST: db
-      DB_PORT: "5432"
+      DB_PORT: "5433"
       DB_NAME: jerney_db
     expose:
       - "5000"
