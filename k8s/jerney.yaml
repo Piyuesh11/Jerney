@@ -153,8 +153,8 @@ spec:
   selector:
     app.kubernetes.io/name: jerney-db
   ports:
-    - port: 5433
-      targetPort: 5433
+    - port: 5432
+      targetPort: 5432
       protocol: TCP
 
 ---
@@ -200,7 +200,7 @@ spec:
               echo "DB is ready!"
       containers:
         - name: backend
-          image: ghcr.io/iam-veeramalla/Jerney/jerney-backend:75da1da
+          image: ghcr.io/iam-veeramalla/jerney/jerney-backend:75da1da
           ports:
             - containerPort: 5000
               protocol: TCP
@@ -210,7 +210,7 @@ spec:
             - name: DB_HOST
               value: "jerney-db"
             - name: DB_PORT
-              value: "5433"
+              value: "5432"
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
@@ -307,7 +307,7 @@ spec:
           effect: "NoSchedule"
       containers:
         - name: frontend
-          image: ghcr.io/iam-veeramalla/Jerney/jerney-frontend:75da1da
+          image: ghcr.io/iam-veeramalla/jerney/jerney-frontend:75da1da
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -358,7 +358,7 @@ spec:
   selector:
     app.kubernetes.io/name: jerney-frontend
   ports:
-    - port: 8080
+    - port: 80
       targetPort: 8080
       protocol: TCP
 
@@ -381,7 +381,7 @@ spec:
             matchLabels:
               app.kubernetes.io/name: jerney-backend
       ports:
-        - port: 5433
+        - port: 5432
           protocol: TCP
 
 ---
